@@ -1,3 +1,5 @@
 .idea
 docs/build
 **/locales/*/LC_MESSAGES/*.mo
+main.py
+/dist
