@@ -1,11 +1,12 @@
 from functools import lru_cache
 
 import pandas as pd
-import requests
+import httpx
+from typing import Union
 
 
 @lru_cache()
-def code_id_map_em() -> dict:
+def _code_id_map_em() -> dict:
     """
     东方财富-股票和市场代码
     http://quote.eastmoney.com/center/gridlist.html#hs_a_board
@@ -26,7 +27,7 @@ def code_id_map_em() -> dict:
         "fields": "f12",
         "_": "1623833739532",
     }
-    r = requests.get(url, params=params)
+    r = httpx.get(url, params=params)
     data_json = r.json()
     if not data_json["data"]["diff"]:
         return dict()
@@ -47,7 +48,7 @@ def code_id_map_em() -> dict:
         "fields": "f12",
         "_": "1623833739532",
     }
-    r = requests.get(url, params=params)
+    r = httpx.get(url, params=params)
     data_json = r.json()
     if not data_json["data"]["diff"]:
         return dict()
@@ -67,7 +68,7 @@ def code_id_map_em() -> dict:
         "fields": "f12",
         "_": "1623833739532",
     }
-    r = requests.get(url, params=params)
+    r = httpx.get(url, params=params)
     data_json = r.json()
     if not data_json["data"]["diff"]:
         return dict()
@@ -77,85 +78,120 @@ def code_id_map_em() -> dict:
     return code_id_dict
 
 
-def stock_zh_a_hist(
-        symbol: str = "000001",
-        period: str = "daily",
-        start_date: str = "19700101",
-        end_date: str = "20500101",
-        adjust: str = "",
-) -> pd.DataFrame:
-    """
-    东方财富网-行情首页-沪深京 A 股-每日行情
-    https://quote.eastmoney.com/concept/sh603777.html?from=classic
-    :param symbol: 股票代码
-    :type symbol: str
-    :param period: choice of {'daily', 'weekly', 'monthly'}
-    :type period: str
-    :param start_date: 开始日期
-    :type start_date: str
-    :param end_date: 结束日期
-    :type end_date: str
-    :param adjust: choice of {"qfq": "前复权", "hfq": "后复权", "": "不复权"}
-    :type adjust: str
-    :return: 每日行情
-    :rtype: pandas.DataFrame
-    """
-    code_id_dict = code_id_map_em()
-    adjust_dict = {"qfq": "1", "hfq": "2", "": "0"}
-    period_dict = {"daily": "101", "weekly": "102", "monthly": "103"}
-    url = "http://push2his.eastmoney.com/api/qt/stock/kline/get"
-    params = {
-        "fields1": "f1,f2,f3,f4,f5,f6",
-        "fields2": "f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f116",
-        "ut": "7eea3edcaed734bea9cbfc24409ed989",
-        "klt": period_dict[period],
-        "fqt": adjust_dict[adjust],
-        "secid": f"{code_id_dict[symbol]}.{symbol}",
-        "beg": start_date,
-        "end": end_date,
-        "_": "1623766962675",
-    }
-    r = requests.get(url, params=params)
-    data_json = r.json()
-    if not (data_json["data"] and data_json["data"]["klines"]):
-        return pd.DataFrame()
-    temp_df = pd.DataFrame(
-        [item.split(",") for item in data_json["data"]["klines"]]
-    )
-    temp_df.columns = [
-        "日期",
-        "开盘",
-        "收盘",
-        "最高",
-        "最低",
-        "成交量",
-        "成交额",
-        "振幅",
-        "涨跌幅",
-        "涨跌额",
-        "换手率",
-    ]
-    temp_df.index = pd.to_datetime(temp_df["日期"])
-    temp_df.reset_index(inplace=True, drop=True)
+class StockZhAHist:
+    def __init__(self,
+                 symbols: str | list[str] = "000001",
+                 period: str = "daily",
+                 start_date: str = "19700101",
+                 end_date: str = "20500101",
+                 adjust: str = "",
+                 *args, **kwargs
+                 ):
+        self.symbols = symbols
+        self.period = period
+        self.start_date = start_date
+        self.end_date = end_date
+        self.adjust = adjust
+        self.extra_args = args
+        self.extra_kwargs = kwargs
 
-    temp_df["开盘"] = pd.to_numeric(temp_df["开盘"])
-    temp_df["收盘"] = pd.to_numeric(temp_df["收盘"])
-    temp_df["最高"] = pd.to_numeric(temp_df["最高"])
-    temp_df["最低"] = pd.to_numeric(temp_df["最低"])
-    temp_df["成交量"] = pd.to_numeric(temp_df["成交量"])
-    temp_df["成交额"] = pd.to_numeric(temp_df["成交额"])
-    temp_df["振幅"] = pd.to_numeric(temp_df["振幅"])
-    temp_df["涨跌幅"] = pd.to_numeric(temp_df["涨跌幅"])
-    temp_df["涨跌额"] = pd.to_numeric(temp_df["涨跌额"])
-    temp_df["换手率"] = pd.to_numeric(temp_df["换手率"])
+    def _fetch_data(self, *args, **kwargs):
+        code_id_dict = _code_id_map_em()
+        adjust_dict = {"qfq": "1", "hfq": "2", "": "0"}
+        period_dict = {"daily": "101", "weekly": "102", "monthly": "103"}
+        url = "http://push2his.eastmoney.com/api/qt/stock/kline/get"
+        big_df = pd.DataFrame()
+        if type(self.symbols) == str:
+            self.symbols = [self.symbols]
+        for symbol in self.symbols:
+            params = {
+                "fields1": "f1,f2,f3,f4,f5,f6",
+                "fields2": "f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f116",
+                "ut": "7eea3edcaed734bea9cbfc24409ed989",
+                "klt": period_dict[self.period],
+                "fqt": adjust_dict[self.adjust],
+                "secid": f"{code_id_dict[symbol]}.{symbol}",
+                "beg": self.start_date,
+                "end": self.end_date,
+                "_": "1623766962675",
+            }
+            timeout = self.extra_kwargs.get("timeout", None)
+            proxies = self.extra_kwargs.get("proxies", None)
+            r = httpx.get(url, params=params, timeout=timeout, proxies=proxies)
+            data_json = r.json()
+            if not (data_json["data"] and data_json["data"]["klines"]):
+                return pd.DataFrame()
+            temp_df = pd.DataFrame(
+                [item.split(",") for item in data_json["data"]["klines"]]
+            )
+            big_df = pd.concat([big_df, temp_df], ignore_index=True)
+        return big_df
 
-    return temp_df
+    def _process_data(self, *args, **kwargs):
+        fetched_data = self._fetch_data()
+        fetched_data.columns = [
+            "日期",
+            "开盘",
+            "收盘",
+            "最高",
+            "最低",
+            "成交量",
+            "成交额",
+            "振幅",
+            "涨跌幅",
+            "涨跌额",
+            "换手率",
+        ]
+        fetched_data.index = pd.to_datetime(fetched_data["日期"])
+        fetched_data.reset_index(inplace=True, drop=True)
+        fetched_data["开盘"] = pd.to_numeric(fetched_data["开盘"], errors="coerce")
+        fetched_data["收盘"] = pd.to_numeric(fetched_data["收盘"], errors="coerce")
+        fetched_data["最高"] = pd.to_numeric(fetched_data["最高"], errors="coerce")
+        fetched_data["最低"] = pd.to_numeric(fetched_data["最低"], errors="coerce")
+        fetched_data["成交量"] = pd.to_numeric(fetched_data["成交量"], errors="coerce")
+        fetched_data["成交额"] = pd.to_numeric(fetched_data["成交额"], errors="coerce")
+        fetched_data["振幅"] = pd.to_numeric(fetched_data["振幅"], errors="coerce")
+        fetched_data["涨跌幅"] = pd.to_numeric(fetched_data["涨跌幅"], errors="coerce")
+        fetched_data["涨跌额"] = pd.to_numeric(fetched_data["涨跌额"], errors="coerce")
+        fetched_data["换手率"] = pd.to_numeric(fetched_data["换手率"], errors="coerce")
+        return fetched_data
+
+    def data(self) -> pd.DataFrame:
+        """
+        返回数据
+        :return: pandas.DataFrame
+        """
+        return self._process_data(self)
+
+    @property
+    def columns(self) -> list:
+        """
+        返回数据
+        :return: pandas.DataFrame
+        """
+        return ['日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率']
+
+    def __str__(self):
+        return "通过调用 .data() 方法返回数据；通过调用 .columns 属性返回数据的列名"
+
+    def __call__(self, *args, **kwargs):
+        self._process_data(self)
 
 
 if __name__ == '__main__':
-    stock_zh_a_hist_df = stock_zh_a_hist(symbol="430090",
-                                         period="daily",
-                                         start_date="20220516",
-                                         end_date="20220722",
-                                         adjust="hfq", )
+    stock_zh_a_hist = StockZhAHist
+    proxies = {
+        "http://": "http://127.0.0.1:7890",
+        "https://": "http://127.0.0.1:7890",
+    }
+    stock_zh_a_hist_df = stock_zh_a_hist(
+        symbols=["430090", "000001", "000002"],
+        period="daily",
+        start_date="20000516",
+        end_date="20220722",
+        adjust="hfq",
+        timeout=2.111,
+        proxies=proxies
+    )
+    print(stock_zh_a_hist_df.data())
     print(stock_zh_a_hist_df)
