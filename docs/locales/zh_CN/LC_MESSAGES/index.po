@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aklite \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 22:58+0800\n"
+"POT-Creation-Date: 2023-06-04 01:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -24,7 +24,8 @@ msgid "Contents:"
 msgstr "内容"
 
 #: ../../source/index.rst:7 a05724f1e0a847a2a5a2f489ef08416d
-msgid "Welcome to aklite's documentation!"
+#, fuzzy
+msgid "Welcome to AKLite's documentation!"
 msgstr "欢迎访问 AKLite 的文档"
 
 #: ../../source/index.rst:16 02a7b5e68ad3430092321e8756b2a0c9
@@ -41,5 +42,5 @@ msgstr ""
 
 #: ../../source/index.rst:20 7ec0268df2b04d6d90717723075ed72a
 msgid ":ref:`search`"
-msgstr ""
+msgstr "搜索"
 

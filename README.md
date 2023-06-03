@@ -14,3 +14,19 @@ pip install aklite
 
 ## Contributing
 
+## Translate
+
+```shell
+cd docs
+sphinx-build -b gettext ./source build/gettext
+sphinx-intl update -p ./build/gettext -l zh_CN
+```
+
+## Publish
+
+```shell
+hatch build
+hatch publish
+```
+
+
