@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Albert
+# This file is distributed under the same license as the aklite package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aklite \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-03 22:58+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../source/index.rst:9
+msgid "Contents:"
+msgstr "内容"
+
+#: ../../source/index.rst:7 a05724f1e0a847a2a5a2f489ef08416d
+msgid "Welcome to aklite's documentation!"
+msgstr "欢迎访问 AKLite 的文档"
+
+#: ../../source/index.rst:16 02a7b5e68ad3430092321e8756b2a0c9
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../source/index.rst:18 457f5ae31f024b7abf318a6e19b2170f
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../source/index.rst:19 be263238a9fd476388824b5ffba53524
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../source/index.rst:20 7ec0268df2b04d6d90717723075ed72a
+msgid ":ref:`search`"
+msgstr ""
+
