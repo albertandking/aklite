@@ -2,8 +2,8 @@
 
 AKLite is a lite version of AKShare, which will be used in the future to support the AKShare project.
 
-[Documentation](https://aklite.readthedocs.io/)
-[中文文档](https://aklite.readthedocs.io/zh_CN/latest/)
+1. [English Documentation](https://aklite.readthedocs.io/)
+2. [中文文档](https://aklite.readthedocs.io/zh_CN/latest/)
 
 AKLite Features:
 1. Small, Fast and Powerful
