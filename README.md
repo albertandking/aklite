@@ -2,8 +2,11 @@
 
 AKLite is a lite version of AKShare, which will be used in the future to support the AKShare project.
 
+[Documentation](https://aklite.readthedocs.io/)
+[中文文档](https://aklite.readthedocs.io/zh_CN/latest/)
+
 AKLite Features:
-1. Small, fast and powerful
+1. Small, Fast and Powerful
 2. High performance
 3. Easy to ues
 
@@ -18,8 +21,13 @@ pip install aklite --upgrade -i https://pypi.org/simple
 ```python
 import aklite as ai
 
-stock_zh_a_hist_obj = ai.stock_zh_a_hist(symbols=["000001", "000002"], period="daily", start_date="20220101", 
-                                         end_date="20230601", adjust="hfq", timeout=5, proxies={})
+stock_zh_a_hist_obj = ai.stock_zh_a_hist(symbols=["000001", "000002"],
+                                         period="daily",
+                                         start_date="20220101", 
+                                         end_date="20230601",
+                                         adjust="hfq",
+                                         timeout=5,
+                                         proxies={})
 print(stock_zh_a_hist_obj.data)
 print(stock_zh_a_hist_obj.columns)
 print(stock_zh_a_hist_obj.url)
