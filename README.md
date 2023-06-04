@@ -6,9 +6,10 @@ AKLite is a lite version of AKShare, which will be used in the future to support
 2. [中文文档](https://aklite.readthedocs.io/zh_CN/latest/)
 
 AKLite Features:
-1. Small, Fast and Powerful
-2. High performance
-3. Easy to ues
+1. More International
+2. Small, Fast and Powerful
+3. High Performance
+4. Easy to Ues
 
 ## Installation
 
