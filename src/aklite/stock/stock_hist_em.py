@@ -79,6 +79,13 @@ def _code_id_map_em() -> dict:
 
 
 class StockZhAHist:
+    _columns = [
+        '日期', "股票代码", '开盘', '收盘', '最高', '最低', '成交量',
+        '成交额', '振幅', '涨跌幅', '涨跌额', '换手率'
+    ]
+    _url = "https://quote.eastmoney.com/sh601658.html"
+    _desc = "东方财富-股票行情-日行情"
+
     def __init__(self,
                  symbols: str | list[str] = "000001",
                  period: str = "daily",
@@ -124,38 +131,27 @@ class StockZhAHist:
             temp_df = pd.DataFrame(
                 [item.split(",") for item in data_json["data"]["klines"]]
             )
+            temp_df['symbol'] = symbol
             big_df = pd.concat([big_df, temp_df], ignore_index=True)
         return big_df
 
     def _process_data(self, *args, **kwargs):
         fetched_data = self._fetch_data()
         fetched_data.columns = [
-            "日期",
-            "开盘",
-            "收盘",
-            "最高",
-            "最低",
-            "成交量",
-            "成交额",
-            "振幅",
-            "涨跌幅",
-            "涨跌额",
-            "换手率",
+            'date', 'open', 'close', 'high', 'low', 'volume',
+            'turnover', 'amplitude', 'price_change_rate', 'price_change', 'turnover_rate', 'symbol'
         ]
-        fetched_data.index = pd.to_datetime(fetched_data["日期"])
+        fetched_data.index = pd.to_datetime(fetched_data["date"])
         fetched_data.reset_index(inplace=True, drop=True)
-        fetched_data["开盘"] = pd.to_numeric(fetched_data["开盘"], errors="coerce")
-        fetched_data["收盘"] = pd.to_numeric(fetched_data["收盘"], errors="coerce")
-        fetched_data["最高"] = pd.to_numeric(fetched_data["最高"], errors="coerce")
-        fetched_data["最低"] = pd.to_numeric(fetched_data["最低"], errors="coerce")
-        fetched_data["成交量"] = pd.to_numeric(fetched_data["成交量"], errors="coerce")
-        fetched_data["成交额"] = pd.to_numeric(fetched_data["成交额"], errors="coerce")
-        fetched_data["振幅"] = pd.to_numeric(fetched_data["振幅"], errors="coerce")
-        fetched_data["涨跌幅"] = pd.to_numeric(fetched_data["涨跌幅"], errors="coerce")
-        fetched_data["涨跌额"] = pd.to_numeric(fetched_data["涨跌额"], errors="coerce")
-        fetched_data["换手率"] = pd.to_numeric(fetched_data["换手率"], errors="coerce")
+        fetched_data = fetched_data[[
+            'date', 'symbol', 'open', 'close', 'high', 'low', 'volume',
+            'turnover', 'amplitude', 'price_change_rate', 'price_change', 'turnover_rate'
+        ]]
+        for _column in fetched_data.columns[2:]:
+            fetched_data[_column] = pd.to_numeric(fetched_data[_column], errors="coerce")
         return fetched_data
 
+    @property
     def data(self) -> pd.DataFrame:
         """
         返回数据
@@ -169,7 +165,15 @@ class StockZhAHist:
         返回数据
         :return: pandas.DataFrame
         """
-        return ['日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率']
+        return self._columns
+
+    @property
+    def url(self) -> str:
+        return self._url
+
+    @property
+    def desc(self) -> str:
+        return self._desc
 
     def __str__(self):
         return "通过调用 .data() 方法返回数据；通过调用 .columns 属性返回数据的列名"
@@ -184,8 +188,8 @@ if __name__ == '__main__':
         "http://": "http://127.0.0.1:7890",
         "https://": "http://127.0.0.1:7890",
     }
-    stock_zh_a_hist_df = stock_zh_a_hist(
-        symbols=["430090", "000001", "000002"],
+    stock_zh_a_hist_obj = stock_zh_a_hist(
+        symbols=["430090", "000001", "000002", "600000", "600001"],
         period="daily",
         start_date="20000516",
         end_date="20220722",
@@ -193,5 +197,11 @@ if __name__ == '__main__':
         timeout=2.111,
         proxies=proxies
     )
-    print(stock_zh_a_hist_df.data())
-    print(stock_zh_a_hist_df)
+    print(stock_zh_a_hist_obj.data)
+    print(stock_zh_a_hist_obj.columns)
+    print(stock_zh_a_hist_obj.url)
+    print(stock_zh_a_hist_obj.desc)
+    print(stock_zh_a_hist_obj.symbols)
+    print(stock_zh_a_hist_obj.start_date)
+    print(stock_zh_a_hist_obj.end_date)
+    print(stock_zh_a_hist_obj.adjust)

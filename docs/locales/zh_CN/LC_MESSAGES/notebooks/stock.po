@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Albert
+# This file is distributed under the same license as the aklite package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: aklite \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-04 17:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../source/notebooks/stock.ipynb:9 4840f3fde97c4d68b81f1344dd04a9cc
+msgid "Getting Started with Data Fetching"
+msgstr "从获取数据开始"
+
+#: ../../source/notebooks/stock.ipynb:11 88a3a6232583498d93de849eeb4ad57f
+msgid ""
+"Welcome to **AKlite**! The best place to start is to learn about stock "
+"data fetch!"
+msgstr "欢迎来到 AKLite，让我们从获取基本的股票行情数据开始"
+
+#: ../../source/notebooks/stock.ipynb:23 09d57877eb984a89adf816dfeccc8fe6
+msgid "import package"
+msgstr "导入相关的库"
+
+#: ../../source/notebooks/stock.ipynb:55 b9149676ba16437bae41a71677ac5b3e
+msgid "print data"
+msgstr "打印数据"
+

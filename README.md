@@ -2,6 +2,11 @@
 
 AKLite is a lite version of AKShare, which will be used in the future to support the AKShare project.
 
+AKLite Features:
+1. Small, fast and powerful
+2. high performance
+3. easy to ues
+
 ## Installation
 
 ```shell
@@ -13,24 +18,32 @@ pip install aklite
 ```python
 import aklite as ai
 
-stock_hist_em_df = ai._stock_zh_a_hist()
-print(stock_hist_em_df)
+stock_zh_a_hist_obj = ai.stock_zh_a_hist(symbols=["000001", "000002"], period="daily", start_date="20220101", 
+                                         end_date="20230601", adjust="hfq", timeout=5, proxies={})
+print(stock_zh_a_hist_obj.data)
+print(stock_zh_a_hist_obj.columns)
+print(stock_zh_a_hist_obj.url)
+print(stock_zh_a_hist_obj.desc)
+print(stock_zh_a_hist_obj.symbols)
+print(stock_zh_a_hist_obj.start_date)
+print(stock_zh_a_hist_obj.end_date)
+print(stock_zh_a_hist_obj.adjust)
 ```
 
 ```shell
-              日期     开盘     收盘     最高  ...    振幅    涨跌幅   涨跌额   换手率
-0     1991-04-03  49.00  49.00  49.00  ...  0.00  22.50  9.00  0.00
-1     1991-04-04  48.76  48.76  48.76  ...  0.00  -0.49 -0.24  0.00
-2     1991-04-05  48.52  48.52  48.52  ...  0.00  -0.49 -0.24  0.00
-3     1991-04-06  48.28  48.28  48.28  ...  0.00  -0.49 -0.24  0.00
-4     1991-04-08  48.04  48.04  48.04  ...  0.00  -0.50 -0.24  0.00
-          ...    ...    ...    ...  ...   ...    ...   ...   ...
-7677  2023-05-29  12.11  11.98  12.13  ...  1.49  -0.99 -0.12  0.29
-7678  2023-05-30  11.98  11.87  11.99  ...  1.59  -0.92 -0.11  0.39
-7679  2023-05-31  11.82  11.60  11.84  ...  2.19  -2.27 -0.27  0.61
-7680  2023-06-01  11.60  11.59  11.68  ...  1.55  -0.09 -0.01  0.38
-7681  2023-06-02  11.68  11.93  11.97  ...  2.85   2.93  0.34  0.63
-[7682 rows x 11 columns]
+           date  symbol  ...  price_change  turnover_rate
+0    2022-01-04  000001  ...         29.26           0.60
+1    2022-01-05  000001  ...         79.63           1.01
+2    2022-01-06  000001  ...         -4.87           0.57
+3    2022-01-07  000001  ...         13.00           0.58
+4    2022-01-10  000001  ...         -1.62           0.47
+..          ...     ...  ...           ...            ...
+677  2023-05-26  000002  ...          2.62           0.42
+678  2023-05-29  000002  ...        -23.56           0.46
+679  2023-05-30  000002  ...         43.20           0.91
+680  2023-05-31  000002  ...        -15.71           0.46
+681  2023-06-01  000002  ...        -31.42           0.48
+[682 rows x 12 columns]
 ```
 
 ## Contributing
