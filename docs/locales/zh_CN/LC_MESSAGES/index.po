@@ -50,7 +50,7 @@ msgstr ""
 
 #: ../../source/index.rst:36 f7024730680c4ec5b24c07ed01311d6c
 msgid "Key Features"
-msgstr ""
+msgstr "关键特性"
 
 #: ../../source/index.rst:38 302759b94f68476fa09531d45ab679f3
 msgid ""
