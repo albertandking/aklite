@@ -10,7 +10,7 @@ AKLite Features:
 ## Installation
 
 ```shell
-pip install aklite
+pip install aklite --upgrade -i https://pypi.org/simple
 ```
 
 ## Usage
