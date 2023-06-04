@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aklite \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-04 18:11+0800\n"
+"POT-Creation-Date: 2023-06-04 20:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -19,46 +19,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: ../../source/notebooks/stock.ipynb:9 4840f3fde97c4d68b81f1344dd04a9cc
+#: ../../source/notebooks/stock.ipynb:9 6e867cd252574aea8fea60f008b7dced
 msgid "Getting Started with Data Fetching"
 msgstr "快速入门"
 
-#: ../../source/notebooks/stock.ipynb:11 88a3a6232583498d93de849eeb4ad57f
+#: ../../source/notebooks/stock.ipynb:11 0f7d946e4b7b442abad90e65d23232c3
+#, fuzzy
 msgid ""
-"Welcome to **AKLite**! The best place to start is to learn about stock "
+"Welcome to **AKlite**! The best place to start is to learn about stock "
 "data fetch!"
 msgstr "欢迎来到 AKLite，让我们从获取基本的股票行情数据开始"
 
-#: ../../source/notebooks/stock.ipynb:23 09d57877eb984a89adf816dfeccc8fe6
+#: ../../source/notebooks/stock.ipynb:23 c2c2ba5249e74d678b41d9fde3d09378
 #, fuzzy
 msgid "Import package"
 msgstr "导入相关的库"
 
-#: ../../source/notebooks/stock.ipynb:34 99dadf76888c49c0899829479efbc095
+#: ../../source/notebooks/stock.ipynb:34 2142a503c9264db1bb19310c70f7af56
 msgid ""
 "we should import aklite firstly, just like ``import akshare as ak``, we "
 "will call ``ai`` short for ``aklite``"
 msgstr "首先，我们需要导入 AKLite 这个库，就像我们导入 AKShare 库一样"
 
-#: ../../source/notebooks/stock.ipynb:54 60a5be34342d4cadbb00e9d7e57301e5
+#: ../../source/notebooks/stock.ipynb:55 2ed60256d1db4d0c8e69de9d7ec02220
 msgid ""
 "then, we can fetch stock data by our specific parameters: 1. we can set "
 "symbols, which is a list or str contains many stocks or just one; 2. we "
 "can set timeout and proxies for httpx timeout and proxies"
 msgstr ""
-"然后，我们可以通过指定参数来获取数据，但是要注意此处与 AKShare 对应接口不同的是，我们"
-"可以通过 symbols 参数来获取多个标的的数据，且可以指定 timeout 和 proxies 参数来指定"
-"超时和代理，从而让接口使用更为便利"
+"然后，我们可以通过指定参数来获取数据，但是要注意此处与 AKShare 对应接口不同的是，我们可以通过 symbols "
+"参数来获取多个标的的数据，且可以指定 timeout 和 proxies 参数来指定超时和代理，从而让接口使用更为便利"
 
-#: ../../source/notebooks/stock.ipynb:82 b9149676ba16437bae41a71677ac5b3e
+#: ../../source/notebooks/stock.ipynb:83 21b66923f9f34720a72bb5485869dd77
 #, fuzzy
 msgid "Print data"
 msgstr "打印数据"
 
-#: ../../source/notebooks/stock.ipynb:93 30e43e7dae344631bedd0be8259046c8
+#: ../../source/notebooks/stock.ipynb:94 0372182faf274ce5a5766ccdf3e44666
 msgid ""
 "we can print data here, ``stock_zh_a_hist_obj`` is the object, which "
 "contains many attributes, we can get the data calling ``obj.data``."
 msgstr ""
-"我们可以在这里打印出数据，但是我们返回的 `stock_zh_a_hist_obj` 是一个类的实例，我们"
-"需要通过调用实例的方法来获取数据，比如：`stock_zh_a_hist_obj.data` 来获取。"
+"我们可以在这里打印出数据，但是我们返回的 `stock_zh_a_hist_obj` "
+"是一个类的实例，我们需要通过调用实例的方法来获取数据，比如：`stock_zh_a_hist_obj.data` 来获取。"
+

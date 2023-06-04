@@ -25,82 +25,43 @@ AKLite
 AKLite is a lite version of AKShare
 =======================================
 
-Are you looking to enhance your trading strategies with the power of Python and
-machine learning? Then you need to check out **PyBroker**! This Python framework
-is designed for developing algorithmic trading strategies, with a focus on
-strategies that use machine learning. With PyBroker, you can easily create and
-fine-tune trading rules, build powerful models, and gain valuable insights into
-your strategy's performance.
+AKLite will make the data fetch process more easy and fast. Now it focus on
+stock data, and will support more data in the future.
 
 Key Features
-============
+==============
 
-* A super-fast backtesting engine built in `NumPy <https://numpy.org/>`_  and accelerated with `Numba <https://numba.pydata.org/>`_.
-* The ability to create and execute trading rules and models across multiple instruments with ease.
-* Access to historical data from `Alpaca <https://alpaca.markets/>`_, `Yahoo Finance <https://finance.yahoo.com/>`_, `AKShare <https://github.com/akfamily/akshare>`_, or from `your own data provider <https://www.pybroker.com/en/latest/notebooks/7.%20Creating%20a%20Custom%20Data%20Source.html>`_.
-* The option to train and backtest models using `Walkforward Analysis <https://www.pybroker.com/en/latest/notebooks/6.%20Training%20a%20Model.html#Walkforward-Analysis>`_, which simulates how the strategy would perform during actual trading.
-* More reliable trading metrics that use randomized `bootstrapping <https://en.wikipedia.org/wiki/Bootstrapping_(statistics)>`_ to provide more accurate results.
-* Caching of downloaded data, indicators, and models to speed up your development process.
-* Parallelized computations that enable faster performance.
+* A super-fast request engine built in `HTTPX <https://www.python-httpx.org/>`_  and accelerated with `Asyncio <https://docs.python.org/3/library/asyncio.html>`_.
+* The ability to fetch multiple stocks with ease.
+* Access to historical data from main stream data source.
 
-With PyBroker, you'll have all the tools you need to create winning trading
-strategies backed by data and machine learning. Start using PyBroker today and
-take your trading to the next level!
+With AKLite, you'll have all the tools you need to fetch data. Start using AKLite today and
+take your working to the next level!
 
 A Quick Example
-===============
+=================
 
-Get a glimpse of what backtesting with PyBroker looks like with these code
-snippets:
+Get a glimpse of what fetching with AKLite looks like with these code snippets:
 
-**Rule-based Strategy**::
+**Fetching Stock Data**::
 
-   from pybroker import Strategy, YFinance, highest
+    import aklite as ai
 
-   def exec_fn(ctx):
-      # Get the rolling 10 day high.
-      high_10d = ctx.indicator('high_10d')
-      # Buy on a new 10 day high.
-      if not ctx.long_pos() and high_10d[-1] > high_10d[-2]:
-         ctx.buy_shares = 100
-         # Hold the position for 5 days.
-         ctx.hold_bars = 5
-         # Set a stop loss of 2%.
-         ctx.stop_loss_pct = 2
-
-   strategy = Strategy(YFinance(), start_date='1/1/2022', end_date='7/1/2022')
-   strategy.add_execution(
-      exec_fn, ['AAPL', 'MSFT'], indicators=highest('high_10d', 'close', period=10))
-   # Run the backtest after 20 days have passed.
-   result = strategy.backtest(warmup=20)
-
-**Model-based Strategy**::
-
-   import pybroker
-   from pybroker import Alpaca, Strategy
-
-   def train_fn(train_data, test_data, ticker):
-      # Train the model using indicators stored in train_data.
-      ...
-      return trained_model
-
-   # Register the model and its training function with PyBroker.
-   my_model = pybroker.model('my_model', train_fn, indicators=[...])
-
-   def exec_fn(ctx):
-      preds = ctx.preds('my_model')
-      # Open a long position given my_model's latest prediction.
-      if not ctx.long_pos() and preds[-1] > buy_threshold:
-         ctx.buy_shares = 100
-      # Close the long position given my_model's latest prediction.
-      elif ctx.long_pos() and preds[-1] < sell_threshold:
-         ctx.sell_all_shares()
-
-   alpaca = Alpaca(api_key=..., api_secret=...)
-   strategy = Strategy(alpaca, start_date='1/1/2022', end_date='7/1/2022')
-   strategy.add_execution(exec_fn, ['AAPL', 'MSFT'], models=my_model)
-   # Run Walkforward Analysis on 1 minute data using 5 windows with 50/50 train/test data.
-   result = strategy.walkforward(timeframe='1m', windows=5, train_size=0.5)
+    stock_zh_a_hist_obj = ai.stock_zh_a_hist(symbols=["000001", "000002"],
+                                             period="daily",
+                                             start_date="20220101",
+                                             end_date="20230601",
+                                             adjust="hfq",
+                                             timeout=5,
+                                             proxies={})
+    print(stock_zh_a_hist_obj.data)
+    print(stock_zh_a_hist_obj.columns)
+    print(stock_zh_a_hist_obj.url)
+    print(stock_zh_a_hist_obj.desc)
+    print(stock_zh_a_hist_obj.symbols)
+    print(stock_zh_a_hist_obj.start_date)
+    print(stock_zh_a_hist_obj.end_date)
+    print(stock_zh_a_hist_obj.adjust)
 
 To learn how to use AKLite, see the notebooks under the *User Guide*:
 
@@ -112,9 +73,6 @@ To learn how to use AKLite, see the notebooks under the *User Guide*:
 
 `The notebooks above are also available on Github
 <https://github.com/jindaxiang/aklite/tree/master/docs/notebooks>`_.
-
-
-   Index <genindex>
 
 Recommended Reading
 ===================

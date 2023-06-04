@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aklite \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-04 17:46+0800\n"
+"POT-Creation-Date: 2023-06-04 20:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_CN\n"
@@ -19,162 +19,127 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: ../../source/index.rst:107
+#: ../../source/index.rst:68
 msgid "User Guide"
 msgstr "用户指南"
 
 #: ../../source/index.rst:-1 ../../source/index.rst:10
-#: 39f3f7dc0a914d528cc376503aa1a5f1 e64ca11f602546d5a61692dfb0f8c30f
+#: 53c05ff146434d7f9515ef8e254e1fd3 f93733aeaed3427fbea645bc4a82c467
 msgid "AKLite"
 msgstr ""
 
 #: ../../source/index.rst:-1 ../../source/index.rst:26
-#: 797278a8adef4dafa259b871f7e8a850 8a8308aa93a9432bba9787ad96e52117
+#: 31b15136d228473e8836cfee03ef62a5 8a6056c3f0d644499b5e8fa2be1bace8
 msgid "AKLite is a lite version of AKShare"
 msgstr "AKLite 是 AKShare 的轻量版本"
 
-#: ../../source/index.rst:-1 d5988b8f78294f24835033f45e23ddcd
+#: ../../source/index.rst:-1 5e7fd7ec8e184077b3dbf7a578758832
 msgid "XJpTXQaAdlEb2eAbndHa2ZmaUiOixSMaRusk-kKVKOQ"
 msgstr ""
 
-#: ../../source/index.rst:28 74eda6466605405186b47ebd61e879d1
+#: ../../source/index.rst:28 c4a18f12d1bf4d51a7a92b1387226383
 msgid ""
-"Are you looking to enhance your trading strategies with the power of "
-"Python and machine learning? Then you need to check out **PyBroker**! "
-"This Python framework is designed for developing algorithmic trading "
-"strategies, with a focus on strategies that use machine learning. With "
-"PyBroker, you can easily create and fine-tune trading rules, build "
-"powerful models, and gain valuable insights into your strategy's "
-"performance."
+"AKLite will make the data fetch process more easy and fast. Now it focus "
+"on stock data, and will support more data in the future."
 msgstr ""
+"AKLite 能够使得数据获取的过程更加方便和快速。现在主要专注于股票数据获取，"
+"后续将支持获取更多数据！"
 
-#: ../../source/index.rst:36 f7024730680c4ec5b24c07ed01311d6c
+#: ../../source/index.rst:32 12255b63155f4463ba6dd91a641469d7
 msgid "Key Features"
 msgstr "关键特性"
 
-#: ../../source/index.rst:38 302759b94f68476fa09531d45ab679f3
+#: ../../source/index.rst:34 3a51480d1ccb425eb8bc2d3b82d8a148
 msgid ""
-"A super-fast backtesting engine built in `NumPy <https://numpy.org/>`_  "
-"and accelerated with `Numba <https://numba.pydata.org/>`_."
+"A super-fast request engine built in `HTTPX <https://www.python-"
+"httpx.org/>`_  and accelerated with `Asyncio "
+"<https://docs.python.org/3/library/asyncio.html>`_."
 msgstr ""
+"利用 HTTPX `HTTPX <https://www.python-"
+"httpx.org/>`_ 的同步和异步获取能力，再加 `Asyncio "
+"<https://docs.python.org/3/library/asyncio.html>`_. 的协程助力更好的获取数据"
 
-#: ../../source/index.rst:39 9881c424066e4de997461c630bb52ebc
+#: ../../source/index.rst:35 cf6135818734495a8afa50b9668e2db9
+msgid "The ability to fetch multiple stocks with ease."
+msgstr ""
+"一次可以获取多个股票的数据"
+
+#: ../../source/index.rst:36 3eb15567e7284ba5b9d253d7cc5fdf58
+msgid "Access to historical data from main stream data source."
+msgstr ""
+"从主流数据源获取长时间跨度的历史数据"
+
+#: ../../source/index.rst:38 a88462fe139a4e6cbc56fb711853ac0f
 msgid ""
-"The ability to create and execute trading rules and models across "
-"multiple instruments with ease."
+"With AKLite, you'll have all the tools you need to fetch data. Start "
+"using AKLite today and take your working to the next level!"
 msgstr ""
+"拥有 AKLite，就拥有了超强的数据获取能力，让我们快来使用吧！"
 
-#: ../../source/index.rst:40 b43b77de31744921af2d62abce8becd2
-msgid ""
-"Access to historical data from `Alpaca <https://alpaca.markets/>`_, "
-"`Yahoo Finance <https://finance.yahoo.com/>`_, `AKShare "
-"<https://github.com/akfamily/akshare>`_, or from `your own data provider "
-"<https://www.pybroker.com/en/latest/notebooks/7.%20Creating%20a%20Custom%20Data%20Source.html>`_."
-msgstr ""
-
-#: ../../source/index.rst:41 ce34df1e849d42f1bd7976779a5c33d2
-msgid ""
-"The option to train and backtest models using `Walkforward Analysis "
-"<https://www.pybroker.com/en/latest/notebooks/6.%20Training%20a%20Model.html"
-"#Walkforward-Analysis>`_, which simulates how the strategy would perform "
-"during actual trading."
-msgstr ""
-
-#: ../../source/index.rst:42 bd9e919fdf2e418f899cf346f960e7d2
-msgid ""
-"More reliable trading metrics that use randomized `bootstrapping "
-"<https://en.wikipedia.org/wiki/Bootstrapping_(statistics)>`_ to provide "
-"more accurate results."
-msgstr ""
-
-#: ../../source/index.rst:43 b0da772951c448e7944241830ca9c16f
-msgid ""
-"Caching of downloaded data, indicators, and models to speed up your "
-"development process."
-msgstr ""
-
-#: ../../source/index.rst:44 659fa178088948bcba97e6e9769ee459
-msgid "Parallelized computations that enable faster performance."
-msgstr ""
-
-#: ../../source/index.rst:46 33bca24736df4063b1c2a4ffed6d7014
-msgid ""
-"With PyBroker, you'll have all the tools you need to create winning "
-"trading strategies backed by data and machine learning. Start using "
-"PyBroker today and take your trading to the next level!"
-msgstr ""
-
-#: ../../source/index.rst:51 8b29b5d37256442f8883009314e99dac
+#: ../../source/index.rst:42 10aa7b5a6d994abaa1e02cb719259821
 msgid "A Quick Example"
-msgstr ""
+msgstr "快速开始示例"
 
-#: ../../source/index.rst:53 c7ec73bcd49c43269de0163b7a8c7423
+#: ../../source/index.rst:44 81aea5e859be4fd69c5f4a67de6ea528
 msgid ""
-"Get a glimpse of what backtesting with PyBroker looks like with these "
-"code snippets:"
-msgstr ""
+"Get a glimpse of what fetching with AKLite looks like with these code "
+"snippets:"
+msgstr "让我们通过代码来看下如何开始"
 
-#: ../../source/index.rst:56 e57f16e4fdaf46a6aa6f12a58e7d2a01
-msgid "**Rule-based Strategy**::"
-msgstr ""
+#: ../../source/index.rst:46 ebe5222c0c7c436b99b425b9f3fe648b
+msgid "**Fetching Stock Data**::"
+msgstr "**获取数据数据**"
 
-#: ../../source/index.rst:77 6f4991f297e84f7f9cd7aa371529d6ba
-msgid "**Model-based Strategy**::"
-msgstr ""
-
-#: ../../source/index.rst:105 f721c24cab7748f9a3583a76e13293b7
+#: ../../source/index.rst:66 aa150e88046c4a81acc32c78f4472181
 msgid "To learn how to use AKLite, see the notebooks under the *User Guide*:"
-msgstr ""
+msgstr "学习如何更好使用 AKLite，请访问用户指南"
 
-#: ../../source/index.rst:113 b0d7b7960f614e58a4bc52e82193585a
+#: ../../source/index.rst:74 d1457d9645644b3787165d9a60b358f2
 msgid ""
 "`The notebooks above are also available on Github "
 "<https://github.com/jindaxiang/aklite/tree/master/docs/notebooks>`_."
-msgstr ""
+msgstr "上面的 notebook，可以通过 "
+"<https://github.com/jindaxiang/aklite/tree/master/docs/notebooks>`_. 来获取"
 
-#: ../../source/index.rst:117 ad8f4b46e49c4f34b4f4bf4428fa27ea
-msgid "Index <genindex>"
-msgstr ""
-
-#: ../../source/index.rst:120 076c9a18c12642aa9ba28b9738a3fd29
+#: ../../source/index.rst:78 b016ff222b4149debfce7b17dc05d77d
 msgid "Recommended Reading"
-msgstr ""
+msgstr "推荐阅读"
 
-#: ../../source/index.rst:122 dcc84a1db9bf4df9ab484c50499b7a1c
+#: ../../source/index.rst:80 305e575b3e214b838eb0677956450aa1
 msgid ""
 "The following is a list of essential books that provide background "
 "information on quantitative finance and algorithmic trading:"
-msgstr ""
+msgstr "下面是推荐的一系列关于量化投资和算法交易的书籍"
 
-#: ../../source/index.rst:125 084bfdbbf4d04ed4a18288c814397b4a
+#: ../../source/index.rst:83 9735738087074e5db4beb67d52c53309
 msgid ""
 "Lingjie Ma, `Quantitative Investing: From Theory to Industry "
 "<https://www.amazon.com/Quantitative-Investing-Industry-Lingjie-"
 "Ma/dp/3030472019/>`_"
 msgstr ""
 
-#: ../../source/index.rst:127 0a1bcb7b15714f39b3625be1ee5cdf23
+#: ../../source/index.rst:85 e091244ccd90443d8f6f917ad154f0ef
 msgid ""
 "Timothy Masters, `Testing and Tuning Market Trading Systems: Algorithms "
 "in C++ <https://www.amazon.com/Testing-Tuning-Market-Trading-"
 "Systems/dp/148424172X/>`_"
 msgstr ""
 
-#: ../../source/index.rst:129 9fcbcc158084415da8de27ece0b59917
+#: ../../source/index.rst:87 856841d01e2f446e90a89f88d7b009bd
 msgid ""
 "Stefan Jansen, `Machine Learning for Algorithmic Trading, 2nd Edition "
 "<https://www.amazon.com/Machine-Learning-Algorithmic-Trading-"
 "alternative/dp/1839217715/>`_"
 msgstr ""
 
-#: ../../source/index.rst:131 c9e26c2b7cdc41838696a59bfd024533
+#: ../../source/index.rst:89 95ab734c6960411892aa46aca1bb98a4
 msgid ""
 "Ernest P. Chan, `Machine Trading: Deploying Computer Algorithms to "
 "Conquer the Markets <https://www.amazon.com/Machine-Trading-Deploying-"
 "Computer-Algorithms-ebook/dp/B01N7NKVG0/>`_"
 msgstr ""
 
-#: ../../source/index.rst:133 6272fca25bfa4438894203d006ad45e6
+#: ../../source/index.rst:91 1470dac5ad6d4a44bc0b813afff144f0
 msgid ""
 "Perry J. Kaufman, `Trading Systems and Methods, 6th Edition "
 "<https://www.amazon.com/Trading-Systems-Methods-Wiley-"
@@ -212,5 +177,91 @@ msgstr ""
 #~ "`The notebooks above are also available"
 #~ " on Github "
 #~ "<https://github.com/edtechre/pybroker/tree/master/docs/notebooks>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Are you looking to enhance your "
+#~ "trading strategies with the power of "
+#~ "Python and machine learning? Then you"
+#~ " need to check out **PyBroker**! This"
+#~ " Python framework is designed for "
+#~ "developing algorithmic trading strategies, "
+#~ "with a focus on strategies that "
+#~ "use machine learning. With PyBroker, you"
+#~ " can easily create and fine-tune "
+#~ "trading rules, build powerful models, "
+#~ "and gain valuable insights into your "
+#~ "strategy's performance."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A super-fast backtesting engine built"
+#~ " in `NumPy <https://numpy.org/>`_  and "
+#~ "accelerated with `Numba "
+#~ "<https://numba.pydata.org/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ability to create and execute "
+#~ "trading rules and models across multiple"
+#~ " instruments with ease."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Access to historical data from `Alpaca"
+#~ " <https://alpaca.markets/>`_, `Yahoo Finance "
+#~ "<https://finance.yahoo.com/>`_, `AKShare "
+#~ "<https://github.com/akfamily/akshare>`_, or from "
+#~ "`your own data provider "
+#~ "<https://www.pybroker.com/en/latest/notebooks/7.%20Creating%20a%20Custom%20Data%20Source.html>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The option to train and backtest "
+#~ "models using `Walkforward Analysis "
+#~ "<https://www.pybroker.com/en/latest/notebooks/6.%20Training%20a%20Model.html"
+#~ "#Walkforward-Analysis>`_, which simulates how "
+#~ "the strategy would perform during actual"
+#~ " trading."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "More reliable trading metrics that use"
+#~ " randomized `bootstrapping "
+#~ "<https://en.wikipedia.org/wiki/Bootstrapping_(statistics)>`_ to"
+#~ " provide more accurate results."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Caching of downloaded data, indicators, "
+#~ "and models to speed up your "
+#~ "development process."
+#~ msgstr ""
+
+#~ msgid "Parallelized computations that enable faster performance."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "With PyBroker, you'll have all the "
+#~ "tools you need to create winning "
+#~ "trading strategies backed by data and"
+#~ " machine learning. Start using PyBroker "
+#~ "today and take your trading to the"
+#~ " next level!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Get a glimpse of what backtesting "
+#~ "with PyBroker looks like with these "
+#~ "code snippets:"
+#~ msgstr ""
+
+#~ msgid "**Rule-based Strategy**::"
+#~ msgstr ""
+
+#~ msgid "**Model-based Strategy**::"
+#~ msgstr ""
+
+#~ msgid "Index <genindex>"
 #~ msgstr ""
 
