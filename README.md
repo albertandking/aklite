@@ -4,8 +4,8 @@ AKLite is a lite version of AKShare, which will be used in the future to support
 
 AKLite Features:
 1. Small, fast and powerful
-2. high performance
-3. easy to ues
+2. High performance
+3. Easy to ues
 
 ## Installation
 
@@ -62,5 +62,3 @@ sphinx-intl update -p ./build/gettext -l zh_CN
 hatch build
 hatch publish
 ```
-
-
