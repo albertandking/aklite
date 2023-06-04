@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../../source/notebooks/stock.ipynb:9 4840f3fde97c4d68b81f1344dd04a9cc
 msgid "Getting Started with Data Fetching"
-msgstr "从获取数据开始"
+msgstr "快速入门"
 
 #: ../../source/notebooks/stock.ipynb:11 88a3a6232583498d93de849eeb4ad57f
 msgid ""
-"Welcome to **AKlite**! The best place to start is to learn about stock "
+"Welcome to **AKLite**! The best place to start is to learn about stock "
 "data fetch!"
 msgstr "欢迎来到 AKLite，让我们从获取基本的股票行情数据开始"
 
