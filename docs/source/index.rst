@@ -105,7 +105,7 @@ snippets:
 To learn how to use AKLite, see the notebooks under the *User Guide*:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: User Guide
 
    notebooks/stock
