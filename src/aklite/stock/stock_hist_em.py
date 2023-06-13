@@ -1,8 +1,7 @@
 from functools import lru_cache
 
-import pandas as pd
 import httpx
-from typing import Union
+import pandas as pd
 
 
 @lru_cache()
